@@ -1,7 +1,7 @@
 import "./bootstrap"
 import App from './App';
 import router from "./router";
-import {i18n} from '../../../../../vue/locale/src/index';
+import {i18n} from '@lambda-platform/locale';
 Vue.prototype.$init = window.init;
 Vue.prototype.$user = window.init.user;
 Vue.prototype.$logo = window.logo;
