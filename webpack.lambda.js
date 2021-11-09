@@ -4,7 +4,7 @@ const fs = require('fs');
 require("laravel-mix-merge-manifest");
 // const lambdaRoot = "../../vue";
 const lambdaRoot = "./node_modules/@lambda-platform";
-const dataform_custom = "./dataform_custom/"
+const dataform_custom = "./assets/dataform_custom/"
 
 if (!fs.existsSync(dataform_custom)) {
     fs.mkdirSync(dataform_custom);
