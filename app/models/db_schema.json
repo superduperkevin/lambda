@@ -1,6 +1,7 @@
 {
  "tableList": [
   "category",
+  "friends",
   "item",
   "roles",
   "users"
@@ -87,6 +88,35 @@
     "title": "aaa",
     "dbType": "varchar",
     "table": "category",
+    "key": "",
+    "extra": "",
+    "nullable": "YES"
+   }
+  ],
+  "friends": [
+   {
+    "model": "id",
+    "title": "id",
+    "dbType": "int",
+    "table": "friends",
+    "key": "PRI",
+    "extra": "",
+    "nullable": "NO"
+   },
+   {
+    "model": "name",
+    "title": "name",
+    "dbType": "varchar",
+    "table": "friends",
+    "key": "",
+    "extra": "",
+    "nullable": "YES"
+   },
+   {
+    "model": "phone",
+    "title": "phone",
+    "dbType": "varchar",
+    "table": "friends",
     "key": "",
     "extra": "",
     "nullable": "YES"

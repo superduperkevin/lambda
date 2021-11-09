@@ -1,0 +1,6 @@
+####################################
+########Starting new build log#######
+####################################
+2021-11-09 20:58:18 Lambda build process started!!
+2021-11-09 20:58:18 go build -o lambda-app
+2021-11-09 20:58:18 Starting server

@@ -23,6 +23,7 @@ $text-color: lighten($primary, 40%);
     }
 
     nav {
+        overflow-y: auto;
         ul {
             li {
                 &:last-child {

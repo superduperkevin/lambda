@@ -18,6 +18,7 @@
 {{end}}
 {{define "scripts"}}
 <script>
+    window.lambda = {{.lambda_config}};
     window.logo = {{ .logo }};
     window.init = {
         user: {{.User}},

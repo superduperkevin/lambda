@@ -30,6 +30,7 @@ mix.webpackConfig({
             path.resolve(`${lambdaRoot}/template/`, 'node_modules'),
             path.resolve(`${lambdaRoot}/chart/`, 'node_modules'),
             path.resolve(`${lambdaRoot}/notify/`, 'node_modules'),
+            path.resolve(`${lambdaRoot}/locale/`, 'node_modules'),
         ],
         alias: {
             dataform_custom: path.resolve(__dirname, "assets/dataform_custom"),

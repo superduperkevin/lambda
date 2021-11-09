@@ -59,6 +59,7 @@ func AdminIndex(UseNotify bool) echo.HandlerFunc {
             "firebase_config":           FirebaseConfig,
             "mix":                       utils.Mix,
             "csrfToken":                 csrfToken,
+            "lambda_config": config.LambdaConfig,
         })
     }
 }
