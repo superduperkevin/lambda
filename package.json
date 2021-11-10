@@ -30,7 +30,7 @@
         "@lambda-platform/agent": "^2.0.5",
         "@lambda-platform/chart": "^1.0.3",
         "@lambda-platform/dataform": "^2.0.8",
-        "@lambda-platform/datagrid": "^2.0.6",
+        "@lambda-platform/datagrid": "^2.0.8",
         "@lambda-platform/datasource": "^2.0.8",
         "@lambda-platform/krud": "^1.0.3",
         "@lambda-platform/locale": "1.0.0",

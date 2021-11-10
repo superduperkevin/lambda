@@ -4,10 +4,15 @@ const fs = require('fs');
 require("laravel-mix-merge-manifest");
 // const lambdaRoot = "../../vue";
 const lambdaRoot = "./node_modules/@lambda-platform";
-const dataform_custom = "./assets/dataform_custom/"
+const dataform_custom = "assets/dataform_custom"
+const datagrid_custom = "assets/datagrid_custom"
+
 
 if (!fs.existsSync(dataform_custom)) {
-    fs.mkdirSync(dataform_custom);
+    fs.mkdirSync(path.resolve(__dirname, datagrid_custom));
+}
+if (!fs.existsSync(datagrid_custom)) {
+    fs.mkdirSync(path.resolve(__dirname, datagrid_custom));
 }
 
 mix.webpackConfig({
@@ -32,7 +37,8 @@ mix.webpackConfig({
             // path.resolve(`${lambdaRoot}/appAdmin/`, 'node_modules'),
         ],
         alias: {
-            dataform_custom: path.resolve(__dirname, "assets/dataform_custom"),
+            dataform_custom: path.resolve(__dirname, dataform_custom),
+            datagrid_custom: path.resolve(__dirname, datagrid_custom),
             vue$: "vue/dist/vue.common.js",
         },
         extensions: ["*", ".js", ".ts", ".vue", ".json"],
