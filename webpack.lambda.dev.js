@@ -96,7 +96,8 @@ mix.extract(
 const compileModules = () => {
     mix.js("assets/admin/js/index.js", "public/assets/admin/js/app.js").vue();
     mix.sass("assets/admin/scss/style.scss", "public/assets/admin/css/app.css");
-
+    mix.js("assets/moqup/moqup_view.js", "public/assets/admin/js/moqup_view.js").vue();
+    mix.sass("assets/moqup/scss/moqup_view.scss", "public/assets/admin/css/moqup_view.css");
     mix
         .js(`${lambdaRoot}/adminmodule/src/index.js`, `public/assets/lambda/js/adminmodule.js`).vue()
         .sass(`${lambdaRoot}/adminmodule/src/scss/style.scss`, `public/assets/lambda/css/adminmodule.css`)

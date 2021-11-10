@@ -2,7 +2,7 @@
     "schema_load_mode": "auto",
     "project_key": "",
     "theme": "aside",
-    "domain": "",
+    "domain": "http://localhost:8080",
     "title": "Lambda Platform",
     "subTitle": "Програм хамгамж бүтээх ажлыг автоматжуулагч",
     "copyright": "Lambda Platform© 2021",
