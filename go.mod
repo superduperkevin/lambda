@@ -6,7 +6,7 @@ require (
 	github.com/foolin/goview v0.3.0
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/labstack/echo/v4 v4.5.0
-	github.com/lambda-platform/adminmodule v0.2.3
+	github.com/lambda-platform/adminmodule v0.2.4
 	github.com/lambda-platform/agent v0.2.2
 	github.com/lambda-platform/chart v0.2.0
 	github.com/lambda-platform/krud v0.2.5
