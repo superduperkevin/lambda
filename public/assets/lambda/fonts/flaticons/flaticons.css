@@ -19,7 +19,7 @@ Creation date: 20/03/2017 20:02
 
 [class^="flaticon-"]:before,
 [class*=" flaticon-"]:before {
-    font-family: Flaticon;
+    font-family: Flaticon, serif;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -29,7 +29,6 @@ Creation date: 20/03/2017 20:02
     text-transform: none;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
 }
 
 .flaticon-users:before {
