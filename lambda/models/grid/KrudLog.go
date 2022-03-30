@@ -1,10 +1,19 @@
 package grid
 
-import "time"
+import (
+	"github.com/lambda-platform/datagrid"
+	"github.com/lambda-platform/lambda/models"
+)
+
+import (
+	"github.com/lambda-platform/lambda/DB"
+	"time"
+)
 
 var _ = time.Time{}
+var _ = DB.Date{}
 
-type CrudLog struct {
+type CrudLog struct{
 	Action    string     `gorm:"column:action" json:"action"`
 	CreatedAt *time.Time `gorm:"column:created_at" json:"created_at"`
 	FirstName string     `gorm:"column:first_name" json:"first_name"`
@@ -17,7 +26,7 @@ type CrudLog struct {
 	UserAgent string     `gorm:"column:user_agent" json:"user_agent"`
 }
 
-type MainTableCrudLog struct{
+type CrudLogMainTable struct{
 	Action    string     `gorm:"column:action" json:"action"`
 	CreatedAt *time.Time `gorm:"column:created_at" json:"created_at"`
 	ID        int        `gorm:"column:id;primary_key" json:"id"`
@@ -29,71 +38,54 @@ type MainTableCrudLog struct{
 	UserID    int        `gorm:"column:user_id" json:"user_id"`
 }
 
-func (m *MainTableCrudLog) TableName() string {
-	return "crud_log"
+func (m *CrudLogMainTable) TableName() string {
+	return "ds_crud_log"
 }
 
 //  TableName sets the insert table name for this struct type
 func (d *CrudLog) TableName() string {
-	return "ds_crud_log"
+	return "crud_log"
 }
 
-func (v *CrudLog) GetCondition() string {
-	return ""
-}
-func (v *CrudLog) GetFilters() map[string]string {
+var CrudLogDatagrid datagrid.Datagrid = datagrid.Datagrid{
+	Name:      "Cистем лог",
+	Identity:  "id",
+	DataTable: "ds_crud_log",
+	MainTable: "crud_log",
+	DataModel: new(CrudLog),
+	Data:      new([]CrudLog),
+	MainModel: new(CrudLogMainTable),
+	Columns: []datagrid.Column{
+		datagrid.Column{Model: "name", Label: "Маягт"},
+		datagrid.Column{Model: "last_name", Label: "Хэрэглэгчийн овог"},
+		datagrid.Column{Model: "first_name", Label: "Хэрэглэгчийн нэр"},
+		datagrid.Column{Model: "ip", Label: "IP хаяг"},
+		datagrid.Column{Model: "user_agent", Label: "хэрэглэгчийн агент"},
+		datagrid.Column{Model: "action", Label: "Үйлдэл"},
+		datagrid.Column{Model: "row_id", Label: "бүртгэлийн ID"},
+		datagrid.Column{Model: "input", Label: "Оролтын мэдээлэл"},
+		datagrid.Column{Model: "created_at", Label: "Огноо"},
+	},
+	ColumnList:[]string{"id", "name", "last_name", "first_name", "ip", "user_agent", "action", "row_id", "input", "created_at"},
+	Filters: map[string]string{
+		"user_id": "Select",
 
-
-	filters := map[string]string{
-
-
-		"action":"Select",
-
-		"created_at":"DateRange",
-
-		"user_id":"Select",
-
-		"schemaId":"Select",
-
-		"row_id":"Select",
-
-	}
-
-	return filters
-}
-func (v *CrudLog) GetColumns() map[int]map[string]string{
-
-
-
-	columns := make(map[int]map[string]string)
-
-
-	columns[1] = map[string]string{"column":"name","label":"Маягт"}
-
-	columns[2] = map[string]string{"column":"last_name","label":"Хэрэглэгчийн овог"}
-
-	columns[3] = map[string]string{"column":"first_name","label":"Хэрэглэгчийн нэр"}
-
-	columns[4] = map[string]string{"column":"ip","label":"IP хаяг"}
-
-	columns[5] = map[string]string{"column":"user_agent","label":"хэрэглэгчийн агент"}
-
-	columns[6] = map[string]string{"column":"action","label":"Үйлдэл"}
-
-	columns[7] = map[string]string{"column":"row_id","label":"бүртгэлийн ID"}
-
-	columns[8] = map[string]string{"column":"input","label":"Оролтын мэдээлэл"}
-
-	columns[9] = map[string]string{"column":"created_at","label":"Огноо"}
-
-
-
-	return columns
-}
-func (v *CrudLog) GetAggergations() string {
-
-
-	aggergations := ""
-
-	return aggergations
+		"schemaId": "Select",
+	},
+	Relations: []models.GridRelation{},
+	Condition:   "",
+	Aggergation: "",
+	Triggers: map[string]interface{}{
+		"beforeFetch":        "",
+		"beforeFetchStruct":  new(interface{}),
+		"afterFetch":         "",
+		"afterFetchStruct":   new(interface{}),
+		"beforeDelete":       "",
+		"beforeDeleteStruct": new(interface{}),
+		"afterDelete":        "",
+		"afterDeleteStruct":  new(interface{}),
+		"beforePrint":        "",
+		"beforePrintStruct":  new(interface{}),
+	},
+	TriggerNameSpace: "",
 }

@@ -3,31 +3,32 @@ module lambda
 go 1.15
 
 require (
+	github.com/99designs/gqlgen v0.17.2
 	github.com/foolin/goview v0.3.0
-	github.com/kr/pretty v0.1.0 // indirect
-	github.com/labstack/echo/v4 v4.5.0
-	github.com/lambda-platform/adminmodule v0.2.8
-	github.com/lambda-platform/agent v0.2.2
-	github.com/lambda-platform/chart v0.2.0
-	github.com/lambda-platform/krud v0.2.5
-	//github.com/lambda-platform/dataform v0.2.2
-	github.com/lambda-platform/lambda v0.3.3
-	github.com/lambda-platform/moqup v0.0.5
+	github.com/go-redis/redis v6.15.9+incompatible
+	github.com/google/go-cmp v0.5.7 // indirect
+	github.com/gorilla/websocket v1.5.0
+	github.com/labstack/echo/v4 v4.7.2
+	github.com/lambda-platform/agent v0.2.8
+	github.com/lambda-platform/chart v0.2.1
+	github.com/lambda-platform/dataform v0.3.2
+	github.com/lambda-platform/datagrid v0.3.1
+	github.com/lambda-platform/generator v0.0.2 // indirect
+	github.com/lambda-platform/graphql v0.0.5
+	github.com/lambda-platform/krud v0.3.4
+	github.com/lambda-platform/lambda v0.4.4
+	github.com/lambda-platform/moqup v0.0.6
+	github.com/lambda-platform/puzzle v0.2.4
 	github.com/lambda-platform/template v0.2.0
-	github.com/shirou/gopsutil/v3 v3.21.8
+	github.com/lib/pq v1.10.4 // indirect
+	github.com/onsi/ginkgo v1.16.5 // indirect
+	github.com/onsi/gomega v1.19.0 // indirect
 	github.com/thedevsaddam/govalidator v1.9.10
-	golang.org/x/net v0.0.0-20210428140749-89ef3d95e781 // indirect
-	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
+	github.com/vektah/gqlparser/v2 v2.4.1
+	golang.org/x/sys v0.0.0-20220111092808-5a964db01320 // indirect
 )
 
-////PRO MODULES
-//replace github.com/lambda-platform/crudlogger v0.0.1 => ../../go/crudlogger
-//replace github.com/lambda-platform/adminmodule v0.2.2 => ../../go/adminmodule
-
-//replace github.com/lambda-platform/agent v0.0.2 => ../../go/agent
-//replace github.com/lambda-platform/krud v0.2.4 => ../../go/krud
-//replace github.com/lambda-platform/dataform v0.2.1 => ../../go/dataform
-//replace github.com/lambda-platform/lambda v0.2.6 => ../../go/lambda
-
-//replace github.com/lambda-platform/moqup v0.0.4 => ../../go/moqup
-//replace github.com/lambda-platform/template v0.0.2 => ../../go/template
+//replace github.com/lambda-platform/puzzle v0.2.2 => ../../go/puzzle
+//replace github.com/lambda-platform/generator v0.0.1 => ../../go/generator
+//
+//replace github.com/lambda-platform/lambda v0.4.3 => ../../go/lambda

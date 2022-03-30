@@ -1,45 +1,59 @@
 package form
 
 import (
+    "github.com/lambda-platform/dataform"
     "github.com/lambda-platform/lambda/DB"
+    "github.com/lambda-platform/lambda/models"
+    "github.com/thedevsaddam/govalidator"
+    "lambda/lambda/models/form/formModels"
     "time"
 )
 
-type UserForm struct {
-	Avatar         string     `gorm:"column:avatar" json:"avatar"`
-	Bio            string     `gorm:"column:bio" json:"bio"`
-	Birthday       DB.Date 	  `gorm:"column:birthday" json:"birthday"`
-	CreatedAt      *time.Time `gorm:"column:created_at" json:"-"`
-	DeletedAt      *time.Time `gorm:"column:deleted_at" json:"-"`
-	Email          string     `gorm:"column:email" json:"email"`
-	FcmToken       string     `gorm:"column:fcm_token" json:"fcm_token"`
-	FirstName      string     `gorm:"column:first_name" json:"first_name"`
-	Gender         string     `gorm:"column:gender" json:"gender"`
-	ID             int        `gorm:"column:id;primary_key" json:"id"`
-	LastName       string     `gorm:"column:last_name" json:"last_name"`
-	Login          string     `gorm:"column:login" json:"login"`
-	Password       string     `gorm:"column:password" json:"password"`
-	Phone       string     `gorm:"column:phone" json:"phone"`
-	RegisterNumber string     `gorm:"column:register_number" json:"register_number"`
-	Role           int        `gorm:"column:role" json:"role"`
-	//Status         string     `gorm:"column:status" json:"status"`
-	UpdatedAt      *time.Time `gorm:"column:updated_at" json:"-"`
-}
+var _ = time.Time{}
+var _ = DB.Date{}
 
-//  TableName sets the insert table name for this struct type
-func (u *UserForm) TableName() string {
-	return "users"
-}
-
-func (u *UserForm) GetFromTypes() map[string]string {
-
-	fields := map[string]string{
-
-		"id": "Text",
-		"password": "Password",
-		"birthday": "Date",
-
-	}
-
-	return fields
+func UserFormDataform() dataform.Dataform {
+    return dataform.Dataform{
+        Name:     "UserFormDataform",
+        Identity: "id",
+        Table:    "users",
+        Model:    new(formModels.UserForm),
+        FieldTypes: map[string]string{
+            "id":              "",
+            "login":           "",
+            "password":        "Password",
+            "status":          "",
+            "role":            "",
+            "uuid":            "",
+            "first_name":      "",
+            "last_name":       "",
+            "bio":             "",
+            "birthday":        "",
+            "gender":          "",
+            "register_number": "",
+            "email":           "",
+            "phone":           "",
+            "avatar":          "",
+            "created_at":      "",
+            "updated_at":      "",
+            "deleted_at":      "",
+        },
+        Formulas: []models.Formula{},
+        ValidationRules: govalidator.MapData{
+            "login": []string{"required"},
+            "password": []string{"required",},
+            "role": []string{"required",},
+        },
+        ValidationMessages: govalidator.MapData{
+            "login": []string{"required:Талбарыг бөглөнө үү!"},
+            "password": []string{"required:Талбарыг бөглөнө үү!",},
+            "role": []string{"required:Хандах эрхээ сонгоно уу",},
+        },
+        SubForms:         []map[string]interface{}{},
+        AfterInsert:      nil,
+        AfterUpdate:      nil,
+        BeforeInsert:     nil,
+        BeforeUpdate:     nil,
+        TriggerNameSpace: "",
+    }
 }

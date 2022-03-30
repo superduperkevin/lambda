@@ -1,22 +1,53 @@
 package form
 
-type UserPassword struct {
-	ID             int        `gorm:"column:id;primary_key" json:"id"`
-	Password       string     `gorm:"column:password" json:"password"`
-}
+import (
+	"github.com/lambda-platform/dataform"
+	"github.com/lambda-platform/lambda/DB"
+	"github.com/lambda-platform/lambda/models"
+	"github.com/thedevsaddam/govalidator"
+	"lambda/lambda/models/form/formModels"
+	"time"
+)
 
-//  TableName sets the insert table name for this struct type
-func (u *UserPassword) TableName() string {
-	return "users"
-}
-func (u *UserPassword) GetFromTypes() map[string]string {
+var _ = time.Time{}
+var _ = DB.Date{}
 
-	fields := map[string]string{
-
-		"id": "Text",
-		"password": "Password",
-
+func UsersDataform() dataform.Dataform {
+	return dataform.Dataform{
+		Name:     "Нууц үг солих",
+		Identity: "id",
+		Table:    "users",
+		Model:    new(formModels.Users),
+		FieldTypes: map[string]string{
+			"id":              "",
+			"login":           "",
+			"password":        "Password",
+			"status":          "",
+			"role":            "",
+			"uuid":            "",
+			"first_name":      "",
+			"last_name":       "",
+			"bio":             "",
+			"birthday":        "",
+			"gender":          "",
+			"register_number": "",
+			"email":           "",
+			"phone":           "",
+			"avatar":          "",
+			"created_at":      "",
+			"updated_at":      "",
+			"deleted_at":      "",
+		},
+		Formulas: []models.Formula{},
+		ValidationRules: govalidator.MapData{
+			"password": []string{"required"}},
+		ValidationMessages: govalidator.MapData{
+			"password": []string{"required:Талбарыг бөглөнө үү!"}},
+		SubForms:         []map[string]interface{}{},
+		AfterInsert:      nil,
+		AfterUpdate:      nil,
+		BeforeInsert:     nil,
+		BeforeUpdate:     nil,
+		TriggerNameSpace: "",
 	}
-
-	return fields
 }

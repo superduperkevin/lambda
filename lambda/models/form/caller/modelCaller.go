@@ -1,33 +1,34 @@
 package caller
 
 import "lambda/lambda/models/form"
+import "github.com/lambda-platform/dataform"
 
-func GetMODEL(schema_id string) (string, interface{}) {
+func GetMODEL(schema_id string) dataform.Dataform {
 
 	switch schema_id {
 
 	case "crud_form":
-		return "id", new(form.CrudFrom)
-
-	case "analytic_form":
-		return "id", new(form.AnalyticForm)
+		return form.KrudDataform()
 
 	case "notification_target_form":
-		return "id", new(form.NotificationTarget)
+		return form.NotificationTargetsDataform()
 
 	case "menu_form":
-		return "id", new(form.MenuForm)
+		return form.MenuFormDataform()
 
 	case "user_form":
-		return "id", new(form.UserForm)
+		return form.UserFormDataform()
 
 	case "user_profile":
-		return "id", new(form.UserProfile)
+		return form.UserProfile()
 
 	case "user_password":
-		return "id", new(form.UserPassword)
+		return form.UsersDataform()
+
+	case "1":
+		return form.Company1Dataform()
 
 	}
-	return "id", new(interface{})
+	return dataform.Dataform{}
 
 }

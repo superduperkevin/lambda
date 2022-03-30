@@ -99,6 +99,8 @@ const compileModules = () => {
     mix.js("assets/moqup/moqup_view.js", "public/assets/admin/js/moqup_view.js").vue();
     mix.sass("assets/moqup/scss/moqup_view.scss", "public/assets/admin/css/moqup_view.css");
     mix
+        .js(`${lambdaRoot}/puzzle/src/index.js`, `public/assets/lambda/js/puzzle.js`).vue()
+        .sass(`${lambdaRoot}/puzzle/src/scss/style.scss`, `public/assets/lambda/css/puzzle.css`)
         .js(`${lambdaRoot}/adminmodule/src/index.js`, `public/assets/lambda/js/adminmodule.js`).vue()
         .sass(`${lambdaRoot}/adminmodule/src/scss/style.scss`, `public/assets/lambda/css/adminmodule.css`)
 

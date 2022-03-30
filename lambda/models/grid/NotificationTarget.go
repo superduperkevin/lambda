@@ -1,8 +1,17 @@
 package grid
 
-import "time"
+import (
+	"github.com/lambda-platform/datagrid"
+	"github.com/lambda-platform/lambda/models"
+)
+
+import (
+	"github.com/lambda-platform/lambda/DB"
+	"time"
+)
 
 var _ = time.Time{}
+var _ = DB.Date{}
 
 type NotificationTarget struct {
 	ID    int64  `gorm:"column:id;primary_key" json:"id"`
@@ -28,36 +37,33 @@ func (n *NotificationTarget) TableName() string {
 	return "notification_targets"
 }
 
-			func (v *NotificationTarget) GetCondition() string {
-				return ""
-			}
-			func (v *NotificationTarget) GetFilters() map[string]string {
-
-
-				filters := map[string]string{
-
-			
-			}
-
-			return filters
-		}
-			func (v *NotificationTarget) GetColumns() map[int]map[string]string{
-
-
-			
-				columns := make(map[int]map[string]string)
-
-			
-					columns[2] = map[string]string{"column":"title","label":"Нэр"}
-
-			
-
-			return columns
-		}
-			func (v *NotificationTarget) GetAggergations() string {
-
-
-				aggergations := ""
-
-			return aggergations
-		}
+var NotificationTargetDatagrid datagrid.Datagrid = datagrid.Datagrid{
+	Name:      "Зорилтод мэдэгдэл",
+	Identity:  "id",
+	DataTable: "notification_targets",
+	MainTable: "notification_targets",
+	DataModel: new(NotificationTarget),
+	Data:      new([]NotificationTarget),
+	MainModel: new(NotificationTargetMainTable),
+	Columns: []datagrid.Column{
+		datagrid.Column{Model: "title", Label: "Нэр"},
+	},
+	ColumnList:[]string{"id", "title"},
+	Filters: map[string]string{},
+	Relations: []models.GridRelation{},
+	Condition:   "",
+	Aggergation: "",
+	Triggers: map[string]interface{}{
+		"beforeFetch":        "",
+		"beforeFetchStruct":  new(interface{}),
+		"afterFetch":         "",
+		"afterFetchStruct":   new(interface{}),
+		"beforeDelete":       "",
+		"beforeDeleteStruct": new(interface{}),
+		"afterDelete":        "",
+		"afterDeleteStruct":  new(interface{}),
+		"beforePrint":        "",
+		"beforePrintStruct":  new(interface{}),
+	},
+	TriggerNameSpace: "",
+}

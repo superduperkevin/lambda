@@ -1,21 +1,45 @@
 package form
 
-import "time"
+import (
+	"github.com/lambda-platform/dataform"
+	"github.com/lambda-platform/lambda/DB"
+	"github.com/lambda-platform/lambda/models"
+	"github.com/thedevsaddam/govalidator"
+	"lambda/lambda/models/form/formModels"
+	"time"
+)
 
-type MenuForm struct {
-	CreatedAt *time.Time `gorm:"column:created_at" json:"created_at"`
-	ID        int64      `gorm:"column:id;primary_key" json:"id"`
-	Name      string     `gorm:"column:name" json:"name"`
-	Schema    string     `gorm:"column:schema" json:"schema"`
-	Type      string     `gorm:"column:type" json:"type"`
-	UpdatedAt *time.Time `gorm:"column:updated_at" json:"updated_at"`
-}
+var _ = time.Time{}
+var _ = DB.Date{}
 
-//  TableName sets the insert table name for this struct type
-func (v *MenuForm) TableName() string {
-	return "vb_schemas"
-}
-func (a *MenuForm) GetSubForms() []map[string]interface{} {
-	subForms := []map[string]interface{}{}
-	return subForms
+func MenuFormDataform() dataform.Dataform {
+	return dataform.Dataform{
+		Name:     "Цэсний тохиргоо",
+		Identity: "id",
+		Table:    "vb_schemas",
+		Model:    new(formModels.VbSchemas),
+		FieldTypes: map[string]string{
+			"id":         "Text",
+			"name":       "Text",
+			"schema":     "AdminMenu",
+			"created_at": "Text",
+			"type":       "Text",
+			"updated_at": "Text",
+		},
+		Formulas: []models.Formula{},
+		ValidationRules: govalidator.MapData{
+
+			"name":   []string{"required"},
+			"schema": []string{"required"}},
+		ValidationMessages: govalidator.MapData{
+
+			"name":   []string{"required:Талбарыг бөглөнө үү!"},
+			"schema": []string{"required:Талбарыг бөглөнө үү!"}},
+		SubForms:         []map[string]interface{}{},
+		AfterInsert:      nil,
+		AfterUpdate:      nil,
+		BeforeInsert:     nil,
+		BeforeUpdate:     nil,
+		TriggerNameSpace: "",
+	}
 }

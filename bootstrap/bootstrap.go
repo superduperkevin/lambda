@@ -2,10 +2,8 @@ package bootstrap
 
 import (
     "lambda/lambda/models/form/caller"
-    "lambda/lambda/models/form/validationCaller"
     gridCaller "lambda/lambda/models/grid/caller"
     "github.com/labstack/echo/v4"
-    //"github.com/lambda-platform/arcGIS"
     "github.com/lambda-platform/chart"
     /*
     	|----------------------------------------------
@@ -15,7 +13,7 @@ import (
     "github.com/lambda-platform/lambda"
     "github.com/lambda-platform/agent"
     "github.com/lambda-platform/krud"
-    "github.com/lambda-platform/adminmodule"
+    "github.com/lambda-platform/puzzle"
     /*
     	|----------------------------------------------
     	| Graphql
@@ -62,7 +60,7 @@ func Set() *lambda.Lambda {
     // arcGIS.MW(caller.GetMODEL, gridCaller.GetMODEL),
     }
     agent.Set(lambda.Echo)
-    krud.Set(lambda.Echo,  gridCaller.GetMODEL, caller.GetMODEL, validationCaller.GetMessages, validationCaller.GetRules, KrudMiddleWares, true)
+    krud.Set(lambda.Echo,  gridCaller.GetMODEL, caller.GetMODEL, KrudMiddleWares, true)
 
     /*
     	|----------------------------------------------
@@ -70,7 +68,8 @@ func Set() *lambda.Lambda {
     	|----------------------------------------------
     */
     graph.Set(lambda.Echo)
-    adminmodule.Set(lambda.Echo, lambda.ModuleName, gridCaller.GetMODEL)
+
+    puzzle.Set(lambda.Echo, lambda.ModuleName, gridCaller.GetMODEL, false, true)
     chart.Set(lambda.Echo)
     moqup.Set(lambda.Echo)
     middlewares.Set(lambda.Echo)
