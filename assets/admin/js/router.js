@@ -8,7 +8,9 @@ if (location.pathname && location.pathname != '/') {
     base = location.pathname.split('/').slice(0, -1).join('/');
 }
 
-let routes = []
+let routes = [
+
+]
 
 export default new Router({
     base,

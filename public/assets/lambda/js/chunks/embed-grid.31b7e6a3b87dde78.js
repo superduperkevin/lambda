@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[7434],{21250:(e,t,a)=>{a.r(t),a.d(t,{default:()=>n});const s={};const n=(0,a(51900).Z)(s,(function(){var e=this,t=e.$createElement;return(e._self._c||t)("datagrid",{attrs:{schemaID:e.$route.params.id,paginate:50}})}),[],!1,null,null,null).exports}}]);
+//# sourceMappingURL=embed-grid.31b7e6a3b87dde78.js.map

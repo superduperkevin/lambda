@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require('fs');
 require("laravel-mix-merge-manifest");
 const lambdaRoot = "../../vue";
+// const lambdaRoot = "./node_modules/@lambda-platform";
 const dataform_custom = "assets/dataform_custom"
 const datagrid_custom = "assets/datagrid_custom"
 
@@ -101,8 +102,6 @@ const compileModules = () => {
     mix
         .js(`${lambdaRoot}/puzzle/src/index.js`, `public/assets/lambda/js/puzzle.js`).vue()
         .sass(`${lambdaRoot}/puzzle/src/scss/style.scss`, `public/assets/lambda/css/puzzle.css`)
-        .js(`${lambdaRoot}/adminmodule/src/index.js`, `public/assets/lambda/js/adminmodule.js`).vue()
-        .sass(`${lambdaRoot}/adminmodule/src/scss/style.scss`, `public/assets/lambda/css/adminmodule.css`)
 
         .js(`${lambdaRoot}/agent/src/index.js`, `public/assets/lambda/js/agent.js`).vue()
         .sass(`${lambdaRoot}/agent/src/scss/agent.scss`, `public/assets/lambda/css/agent.css`)
@@ -132,11 +131,6 @@ const compileModules = () => {
 
          .js(`${lambdaRoot}/chart/src/index.js`, "public/assets/lambda/js/chart.js").vue()
          .sass(`${lambdaRoot}/chart/src/scss/style.scss`, "public/assets/lambda/css/chart.css")
-
-
-
-
-
 
         .sourceMaps()
 };

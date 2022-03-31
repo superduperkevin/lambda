@@ -14,27 +14,29 @@ if (!fs.existsSync(dataform_custom)) {
 if (!fs.existsSync(datagrid_custom)) {
     fs.mkdirSync(path.resolve(__dirname, datagrid_custom));
 }
-
 mix.webpackConfig({
 
     output: {
-        chunkFilename: "assets/lambda/js/chunks/[name].js?id=[contenthash]"
+        chunkFilename: mix.inProduction()
+            ? "assets/lambda/js/chunks/[name].[chunkhash].js"
+            : "assets/lambda/js/chunks/[name].js"
     },
     resolve: {
         modules: [
             path.resolve(__dirname, './node_modules'),
-            // path.resolve(`${lambdaRoot}/agent/`, 'node_modules'),
-            // path.resolve(`${lambdaRoot}/dataform/`, 'node_modules'),
-            // path.resolve(`${lambdaRoot}/datagrid/`, 'node_modules'),
-            // path.resolve(`${lambdaRoot}/datasource/`, 'node_modules'),
-            // path.resolve(`${lambdaRoot}/krud/`, 'node_modules'),
-            // path.resolve(`${lambdaRoot}/moqup/`, 'node_modules'),
-            // path.resolve(`${lambdaRoot}/page/`, 'node_modules'),
-            // path.resolve(`${lambdaRoot}/puzzle/`, 'node_modules'),
-            // path.resolve(`${lambdaRoot}/template/`, 'node_modules'),
-            // path.resolve(`${lambdaRoot}/chart/`, 'node_modules'),
-            // path.resolve(`${lambdaRoot}/notify/`, 'node_modules'),
-            // path.resolve(`${lambdaRoot}/appAdmin/`, 'node_modules'),
+            path.resolve(`${lambdaRoot}/agent/`, 'node_modules'),
+            path.resolve(`${lambdaRoot}/dataform/`, 'node_modules'),
+            path.resolve(`${lambdaRoot}/datagrid/`, 'node_modules'),
+            path.resolve(`${lambdaRoot}/datasource/`, 'node_modules'),
+            path.resolve(`${lambdaRoot}/krud/`, 'node_modules'),
+            path.resolve(`${lambdaRoot}/moqup/`, 'node_modules'),
+            path.resolve(`${lambdaRoot}/page/`, 'node_modules'),
+            path.resolve(`${lambdaRoot}/puzzle/`, 'node_modules'),
+            path.resolve(`${lambdaRoot}/template/`, 'node_modules'),
+            path.resolve(`${lambdaRoot}/chart/`, 'node_modules'),
+            path.resolve(`${lambdaRoot}/notify/`, 'node_modules'),
+            path.resolve(`${lambdaRoot}/locale/`, 'node_modules'),
+            path.resolve(`${lambdaRoot}/utils/`, 'node_modules'),
         ],
         alias: {
             dataform_custom: path.resolve(__dirname, dataform_custom),
@@ -59,6 +61,7 @@ mix.styles(
         // `${lambdaRoot}/dataform/node_modules/`+"vue-multiselect/dist/vue-multiselect.min.css",
         // `${lambdaRoot}/datagrid/node_modules/`+"ag-grid-community/dist/styles/ag-grid.css",
         // `${lambdaRoot}/datagrid/node_modules/`+"ag-grid-community/dist/styles/ag-theme-balham.css",
+
         `./node_modules/` + "iview/dist/styles/iview.css",
         `./node_modules/` + "leaflet/dist/leaflet.css",
         `./node_modules/` + "leaflet-draw/dist/leaflet.draw.css",
@@ -106,8 +109,8 @@ const compileModules = () => {
     mix.js("assets/moqup/moqup_view.js", "public/assets/admin/js/moqup_view.js").vue();
     mix.sass("assets/moqup/scss/moqup_view.scss", "public/assets/admin/css/moqup_view.css");
     mix
-        .js(`${lambdaRoot}/adminmodule/src/index.js`, `public/assets/lambda/js/adminmodule.js`).vue()
-        .sass(`${lambdaRoot}/adminmodule/src/scss/style.scss`, `public/assets/lambda/css/adminmodule.css`)
+        .js(`${lambdaRoot}/puzzle/src/index.js`, `public/assets/lambda/js/puzzle.js`).vue()
+        .sass(`${lambdaRoot}/puzzle/src/scss/style.scss`, `public/assets/lambda/css/puzzle.css`)
 
         .js(`${lambdaRoot}/agent/src/index.js`, `public/assets/lambda/js/agent.js`).vue()
         .sass(`${lambdaRoot}/agent/src/scss/agent.scss`, `public/assets/lambda/css/agent.css`)
@@ -138,10 +141,7 @@ const compileModules = () => {
         .js(`${lambdaRoot}/chart/src/index.js`, "public/assets/lambda/js/chart.js").vue()
         .sass(`${lambdaRoot}/chart/src/scss/style.scss`, "public/assets/lambda/css/chart.css")
 
-
-
-
-        // .sourceMaps()
+        .sourceMaps()
 };
 
 const compileTemplate = () => {

@@ -21,12 +21,20 @@
     window.lambda = {{.lambda_config}};
     window.logo = {{ .logo }};
     window.init = {
+        closeByBtn: true,
+        withoutHeader: true,
         user: {{.User}},
     data_form_custom_elements: {{.data_form_custom_elements}},
     firebase_config: {{.firebase_config}},
     permissions: {{.permissions}},
     cruds: {{.cruds}},
+    subCruds: {{.subCruds}},
+    subCrudFormGrid: {{.subCrudFormGrid}},
+    subCrudSection: {{.subCrudSection}},
     menu: {{.menu}},
+    microserviceSettings: {{.microserviceSettings}},
+    formSchemas: {{.formSchemas}},
+    gridSchemas: {{.gridSchemas}},
     crud_mode: 'refresh',
     };
 </script>
