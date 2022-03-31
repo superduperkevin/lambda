@@ -22,8 +22,6 @@ func GetMODEL(schema_id string) datagrid.Datagrid {
 	case "notification_target_grid":
 		return grid.NotificationTargetDatagrid
 
-	case "2":
-		return grid.Company2Datagrid
 
 	}
 	return datagrid.Datagrid{}
