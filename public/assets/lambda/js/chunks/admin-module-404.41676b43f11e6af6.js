@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[2247],{65859:(n,e,t)=>{t.r(e),t.d(e,{default:()=>u});const l={};const u=(0,t(51900).Z)(l,(function(){var n=this,e=n.$createElement;return(n._self._c||e)("h3",[n._v("\n    404 not found\n")])}),[],!1,null,null,null).exports}}]);
-//# sourceMappingURL=admin-module-404.41676b43f11e6af6.js.map

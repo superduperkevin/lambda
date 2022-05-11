@@ -1,7 +1,7 @@
 package caller
 
 import "lambda/lambda/models/form"
-import "github.com/lambda-platform/dataform"
+import "github.com/lambda-platform/lambda/dataform"
 
 func GetMODEL(schema_id string) dataform.Dataform {
 
@@ -24,6 +24,9 @@ func GetMODEL(schema_id string) dataform.Dataform {
 
 	case "user_password":
 		return form.UsersDataform()
+
+	case "1":
+		return form.Friend1Dataform()
 
 	}
 	return dataform.Dataform{}

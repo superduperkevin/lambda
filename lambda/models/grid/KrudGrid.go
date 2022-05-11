@@ -1,8 +1,8 @@
 package grid
 
 import (
-	"github.com/lambda-platform/datagrid"
 	"github.com/lambda-platform/lambda/DB"
+	"github.com/lambda-platform/lambda/datagrid"
 	"github.com/lambda-platform/lambda/models"
 	"time"
 )
@@ -11,24 +11,23 @@ var _ = time.Time{}
 var _ = DB.Date{}
 
 var KrudGridDatagrid datagrid.Datagrid = datagrid.Datagrid{
-	Name: "Крүд тохиргоо",
-	Identity: "id",
+	Name:      "Крүд тохиргоо",
+	Identity:  "id",
 	DataTable: "krud",
 	MainTable: "krud",
-	DataModel:  new(KrudGrid),
-	Data:  new([]KrudGrid),
-	MainModel:  new(KrudGridMain),
-	Columns:[]datagrid.Column{
+	DataModel: new(KrudGrid),
+	Data:      new([]KrudGrid),
+	MainModel: new(KrudGridMain),
+	Columns: []datagrid.Column{
 		datagrid.Column{
 			Model: "title",
 			Label: "Гарчиг",
 		},
 	},
-	ColumnList:[]string{"id", "title"},
-	Filters: map[string]string{
-	},
-	Relations: []models.GridRelation{},
-	Condition: "",
+	ColumnList: []string{"id", "title"},
+	Filters: map[string]string{},
+	Relations:   []models.GridRelation{},
+	Condition:   "",
 	Aggergation: "",
 	Triggers: map[string]interface{}{
 		"beforeFetch":        "",
@@ -76,4 +75,3 @@ type KrudGridMain struct {
 func (k *KrudGrid) KrudGridMain() string {
 	return "krud"
 }
-

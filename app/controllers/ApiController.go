@@ -1,9 +1,9 @@
 package controllers
 
 import (
-    "lambda/app/models"
     "github.com/labstack/echo/v4"
     "github.com/lambda-platform/lambda/DB"
+    "lambda/app/models"
     "net/http"
 )
 

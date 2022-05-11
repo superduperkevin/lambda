@@ -1,7 +1,7 @@
 package grid
 
 import (
-	"github.com/lambda-platform/datagrid"
+	"github.com/lambda-platform/lambda/datagrid"
 	"github.com/lambda-platform/lambda/models"
 )
 
@@ -26,6 +26,7 @@ type MenuGrid struct {
 func (v *MenuGrid) TableName() string {
 	return "vb_schemas"
 }
+
 type MenuGridMain struct {
 	CreatedAt time.Time `gorm:"column:created_at" json:"created_at"`
 	ID        int64     `gorm:"column:id;primary_key" json:"id"`
@@ -52,10 +53,9 @@ var MenuGridDatagrid datagrid.Datagrid = datagrid.Datagrid{
 		datagrid.Column{Model: "name", Label: "Нэр"},
 		datagrid.Column{Model: "created_at", Label: "Огноо"},
 	},
-	ColumnList:[]string{"id", "name", "created_at"},
-	Filters: map[string]string{
-	},
-	Relations: []models.GridRelation{},
+	ColumnList:  []string{"id", "name", "created_at"},
+	Filters:     map[string]string{},
+	Relations:   []models.GridRelation{},
 	Condition:   "type = 'menu'",
 	Aggergation: "",
 	Triggers: map[string]interface{}{

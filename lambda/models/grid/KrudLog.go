@@ -1,7 +1,7 @@
 package grid
 
 import (
-	"github.com/lambda-platform/datagrid"
+	"github.com/lambda-platform/lambda/datagrid"
 	"github.com/lambda-platform/lambda/models"
 )
 
@@ -13,7 +13,7 @@ import (
 var _ = time.Time{}
 var _ = DB.Date{}
 
-type CrudLog struct{
+type CrudLog struct {
 	Action    string     `gorm:"column:action" json:"action"`
 	CreatedAt *time.Time `gorm:"column:created_at" json:"created_at"`
 	FirstName string     `gorm:"column:first_name" json:"first_name"`
@@ -26,7 +26,7 @@ type CrudLog struct{
 	UserAgent string     `gorm:"column:user_agent" json:"user_agent"`
 }
 
-type CrudLogMainTable struct{
+type CrudLogMainTable struct {
 	Action    string     `gorm:"column:action" json:"action"`
 	CreatedAt *time.Time `gorm:"column:created_at" json:"created_at"`
 	ID        int        `gorm:"column:id;primary_key" json:"id"`
@@ -66,13 +66,13 @@ var CrudLogDatagrid datagrid.Datagrid = datagrid.Datagrid{
 		datagrid.Column{Model: "input", Label: "Оролтын мэдээлэл"},
 		datagrid.Column{Model: "created_at", Label: "Огноо"},
 	},
-	ColumnList:[]string{"id", "name", "last_name", "first_name", "ip", "user_agent", "action", "row_id", "input", "created_at"},
+	ColumnList: []string{"id", "name", "last_name", "first_name", "ip", "user_agent", "action", "row_id", "input", "created_at"},
 	Filters: map[string]string{
 		"user_id": "Select",
 
 		"schemaId": "Select",
 	},
-	Relations: []models.GridRelation{},
+	Relations:   []models.GridRelation{},
 	Condition:   "",
 	Aggergation: "",
 	Triggers: map[string]interface{}{

@@ -1,7 +1,7 @@
 package caller
 
 import "lambda/lambda/models/grid"
-import "github.com/lambda-platform/datagrid"
+import "github.com/lambda-platform/lambda/datagrid"
 
 func GetMODEL(schema_id string) datagrid.Datagrid {
 
@@ -22,6 +22,8 @@ func GetMODEL(schema_id string) datagrid.Datagrid {
 	case "notification_target_grid":
 		return grid.NotificationTargetDatagrid
 
+	case "2":
+		return grid.Friend2Datagrid
 
 	}
 	return datagrid.Datagrid{}

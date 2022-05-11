@@ -1,19 +1,19 @@
 package bootstrap
 
 import (
+    "github.com/labstack/echo/v4"
+    "github.com/lambda-platform/lambda/chart"
     "lambda/lambda/models/form/caller"
     gridCaller "lambda/lambda/models/grid/caller"
-    "github.com/labstack/echo/v4"
-    "github.com/lambda-platform/chart"
     /*
     	|----------------------------------------------
     	| Generated Models
     	|----------------------------------------------
     */
     "github.com/lambda-platform/lambda"
-    "github.com/lambda-platform/agent"
-    "github.com/lambda-platform/krud"
-    "github.com/lambda-platform/puzzle"
+    "github.com/lambda-platform/lambda/agent"
+    "github.com/lambda-platform/lambda/krud"
+    "github.com/lambda-platform/lambda/puzzle"
     /*
     	|----------------------------------------------
     	| Graphql
@@ -26,8 +26,9 @@ import (
     	|----------------------------------------------
     */
 
-    "github.com/lambda-platform/moqup"
+    "github.com/lambda-platform/lambda/moqup"
 
+    lambdaUtils "github.com/lambda-platform/lambda/utils"
     /*
     	|----------------------------------------------
     	| App
@@ -35,13 +36,12 @@ import (
     */
     "lambda/app/middlewares"
     "lambda/routes"
-    lambdaUtils "github.com/lambda-platform/lambda/utils"
     /*
     	|----------------------------------------------
     	| Template Utils
     	|----------------------------------------------
     */
-    templateUtils "github.com/lambda-platform/template/utils"
+    templateUtils "github.com/lambda-platform/lambda/template/utils"
 
     "html/template"
 )
@@ -54,13 +54,13 @@ func Set() *lambda.Lambda {
     	|----------------------------------------------
     */
     lambda := lambda.New(&lambda.Settings{
-        ModuleName:      "lambda",
+        ModuleName: "lambda",
     })
     KrudMiddleWares := []echo.MiddlewareFunc{
-    // arcGIS.MW(caller.GetMODEL, gridCaller.GetMODEL),
+        // arcGIS.MW(caller.GetMODEL, gridCaller.GetMODEL),
     }
     agent.Set(lambda.Echo)
-    krud.Set(lambda.Echo,  gridCaller.GetMODEL, caller.GetMODEL, KrudMiddleWares, true)
+    krud.Set(lambda.Echo, gridCaller.GetMODEL, caller.GetMODEL, KrudMiddleWares, true)
 
     /*
     	|----------------------------------------------

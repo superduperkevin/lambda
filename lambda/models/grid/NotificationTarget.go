@@ -1,7 +1,7 @@
 package grid
 
 import (
-	"github.com/lambda-platform/datagrid"
+	"github.com/lambda-platform/lambda/datagrid"
 	"github.com/lambda-platform/lambda/models"
 )
 
@@ -48,9 +48,9 @@ var NotificationTargetDatagrid datagrid.Datagrid = datagrid.Datagrid{
 	Columns: []datagrid.Column{
 		datagrid.Column{Model: "title", Label: "Нэр"},
 	},
-	ColumnList:[]string{"id", "title"},
-	Filters: map[string]string{},
-	Relations: []models.GridRelation{},
+	ColumnList:  []string{"id", "title"},
+	Filters:     map[string]string{},
+	Relations:   []models.GridRelation{},
 	Condition:   "",
 	Aggergation: "",
 	Triggers: map[string]interface{}{

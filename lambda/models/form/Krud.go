@@ -1,8 +1,8 @@
 package form
 
 import (
-	"github.com/lambda-platform/dataform"
 	"github.com/lambda-platform/lambda/DB"
+	"github.com/lambda-platform/lambda/dataform"
 	"github.com/lambda-platform/lambda/models"
 	"github.com/thedevsaddam/govalidator"
 	"lambda/lambda/models/form/formModels"
