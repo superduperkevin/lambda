@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[8004],{53213:(e,t,l)=>{l.r(t),l.d(t,{default:()=>u});const u=(0,l(51900).Z)({},(function(){var e=this.$createElement;return(this._self._c||e)("router-view")}),[],!1,null,null,null).exports}}]);
-//# sourceMappingURL=datasource-index.def326cb8009f293.js.map

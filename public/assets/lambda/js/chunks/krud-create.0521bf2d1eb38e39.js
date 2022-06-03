@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[1976],{94711:(s,e,t)=>{t.r(e),t.d(e,{default:()=>n});const c={props:["schema"],methods:{onSuccess:function(s){},onError:function(s){}}};const n=(0,t(51900).Z)(c,(function(){var s=this,e=s.$createElement,t=s._self._c||e;return t("section",{staticClass:"edit"},[t("div",{staticClass:"crud-page"},[t("dataform",{ref:"form",attrs:{schemaID:s.schema,editMode:!0,onSuccess:s.onSuccess,onError:s.onError}})],1)])}),[],!1,null,null,null).exports}}]);
-//# sourceMappingURL=krud-create.0521bf2d1eb38e39.js.map
