@@ -1,7 +1,7 @@
 import "./bootstrap"
 import App from './App';
 import router from "./router";
-import {i18n} from '@lambda-platform/locale';
+import {i18n} from 'lambda_platform/locale';
 import {
     store
 } from './store/store'
