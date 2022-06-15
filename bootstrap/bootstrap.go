@@ -1,49 +1,53 @@
 package bootstrap
 
 import (
-    "github.com/labstack/echo/v4"
-    "github.com/lambda-platform/lambda/chart"
-    "lambda/lambda/models/form/caller"
-    gridCaller "lambda/lambda/models/grid/caller"
-    /*
-    	|----------------------------------------------
-    	| Generated Models
-    	|----------------------------------------------
-    */
-    "github.com/lambda-platform/lambda"
-    "github.com/lambda-platform/lambda/agent"
-    "github.com/lambda-platform/lambda/krud"
-    "github.com/lambda-platform/lambda/puzzle"
-    /*
-    	|----------------------------------------------
-    	| Graphql
-    	|----------------------------------------------
-    */
-    "lambda/lambda/graph"
-    /*
-    	|----------------------------------------------
-    	| PRO MODULES
-    	|----------------------------------------------
-    */
+	"lambda/lambda/models/form/caller"
+	gridCaller "lambda/lambda/models/grid/caller"
 
-    "github.com/lambda-platform/lambda/moqup"
+	"github.com/labstack/echo/v4"
+	"github.com/lambda-platform/lambda/chart"
 
-    lambdaUtils "github.com/lambda-platform/lambda/utils"
-    /*
-    	|----------------------------------------------
-    	| App
-    	|----------------------------------------------
-    */
-    "lambda/app/middlewares"
-    "lambda/routes"
-    /*
-    	|----------------------------------------------
-    	| Template Utils
-    	|----------------------------------------------
-    */
-    templateUtils "github.com/lambda-platform/lambda/template/utils"
+	/*
+		|----------------------------------------------
+		| Generated Models
+		|----------------------------------------------
+	*/
+	"github.com/lambda-platform/lambda"
+	"github.com/lambda-platform/lambda/agent"
+	"github.com/lambda-platform/lambda/krud"
+	"github.com/lambda-platform/lambda/puzzle"
 
-    "html/template"
+	/*
+		|----------------------------------------------
+		| Graphql
+		|----------------------------------------------
+	*/
+	"lambda/lambda/graph"
+	/*
+		|----------------------------------------------
+		| PRO MODULES
+		|----------------------------------------------
+	*/
+
+	"github.com/lambda-platform/lambda/moqup"
+
+	lambdaUtils "github.com/lambda-platform/lambda/utils"
+	/*
+		|----------------------------------------------
+		| App
+		|----------------------------------------------
+	*/
+	"lambda/app/middlewares"
+	"lambda/routes"
+
+	/*
+		|----------------------------------------------
+		| Template Utils
+		|----------------------------------------------
+	*/
+	templateUtils "github.com/lambda-platform/lambda/template/utils"
+
+	"html/template"
 )
 
 func Set() *lambda.Lambda {
@@ -89,7 +93,7 @@ func Set() *lambda.Lambda {
     template.Must(templates["admin.html"].ParseFiles(
         "views/admin.html",
     ))
-
+		
     /*
     	|----------------------------------------------
     	| ROUTES

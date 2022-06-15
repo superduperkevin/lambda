@@ -12,23 +12,23 @@ import (
 var _ = time.Time{}
 var _ = DB.Date{}
 
-func Friend1Dataform() dataform.Dataform {
+func Category1Dataform() dataform.Dataform {
 	return dataform.Dataform{
-		Name:     "friend",
+		Name:     "Ангилал",
 		Identity: "id",
-		Table:    "friend",
-		Model:    new(formModels.Friend1),
+		Table:    "category",
+		Model:    new(formModels.Category1),
 		FieldTypes: map[string]string{
-			"id":   "Text",
-			"name": "Text",
+			"id":       "Text",
+			"category": "Text",
 		},
 		Formulas: []models.Formula{},
 		ValidationRules: govalidator.MapData{
 
-			"name": []string{}},
+			"category": []string{}},
 		ValidationMessages: govalidator.MapData{
 
-			"name": []string{}},
+			"category": []string{}},
 		SubForms:         []map[string]interface{}{},
 		AfterInsert:      nil,
 		AfterUpdate:      nil,

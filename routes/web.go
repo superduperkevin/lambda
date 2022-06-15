@@ -1,10 +1,11 @@
 package routes
 
 import (
-    "lambda/app/controllers"
-    "lambda/app/middlewares"
-    "github.com/labstack/echo/v4"
-    "github.com/lambda-platform/lambda/agent/agentMW"
+	"lambda/app/controllers"
+	"lambda/app/middlewares"
+
+	"github.com/labstack/echo/v4"
+	"github.com/lambda-platform/lambda/agent/agentMW"
 )
 
 func Web(e *echo.Echo) {
